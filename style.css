@@ -670,55 +670,83 @@ body::after {
 
 /* Responsif */
 @media (max-width: 520px) {
-  .app-container {
-    padding: 25px 18px;
-  }
-  
-  /* PERBAIKAN JUDUL UTAMA DI HP */
-  .title {
-    font-size: 36px; /* Ukuran huruf disesuaikan */
-    -webkit-text-stroke: 1.5px var(--p4-black); /* Garis tepi hitam menipis */
-    text-shadow: 2px 2px 0 var(--p4-black); /* Bayangan lebih dekat, tidak menumpuk */
-    letter-spacing: 1px; /* Jarak antar huruf dirapatkan */
-  }
-  
-  /* PERBAIKAN JUDUL KECIL (Materi, Cara Bermain, Hasil) DI HP */
-  .title-sm {
-    font-size: 24px;
-    -webkit-text-stroke: 1.5px var(--p4-black);
-    text-shadow: 2px 2px 0 var(--p4-black);
-    letter-spacing: 1px;
-  }
-
-  .btn {
-    font-size: 14px;
-    padding: 13px 16px;
-  }
-
   body {
-    padding: 25px 12px;
+    padding: 15px 8px;
+  }
+
+  .app-container {
+    padding: 20px 12px;
+    min-height: auto;
+    border-width: 3px;
+    box-shadow: 4px 4px 0 var(--p4-black);
   }
 
   .app-container::before {
-    font-size: 48px;
-    top: -30px;
-    right: -10px;
+    font-size: 40px;
+    top: -25px;
+    right: -5px;
   }
 
-  .game-actions .btn {
-    min-width: 70px;
+  .title {
+    font-size: 26px;
+    -webkit-text-stroke: 1px var(--p4-black);
+    text-shadow: 2px 2px 0 var(--p4-black);
+    letter-spacing: 0px;
+    white-space: nowrap;
+  }
+
+  .title-sm {
+    font-size: 20px;
+    -webkit-text-stroke: 1px var(--p4-black);
+    text-shadow: 2px 2px 0 var(--p4-black);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
   }
 
   .materi-container {
-    max-height: 320px;
+    max-height: 350px;
+    padding-right: 2px;
+  }
+
+  .materi-card {
+    padding: 10px 12px;
+    box-shadow: 2px 2px 0 var(--p4-black);
+    margin-bottom: 10px;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    margin: 5px 0;
+    border: 2px solid var(--p4-black);
+    box-shadow: 2px 2px 0 var(--p4-black);
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 12px 10px;
+    box-shadow: 3px 3px 0 var(--p4-black);
+  }
+
+  .menu-buttons {
+    margin-top: 15px;
+    gap: 10px;
   }
 
   .materi-judul {
-    font-size: 12px;
+    font-size: 11px;
+    padding: 3px 8px;
+    margin-bottom: 8px;
   }
 
   .materi-teks,
   .materi-list {
     font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .subtitle {
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
   }
 }
