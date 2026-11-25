@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SusunKata - Aplikasi Edukasi Interaktif</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Menu Utama -->
+      <section id="screen-menu" class="screen active">
+        <h1 class="title">Susun Kata</h1>
+        <p class="subtitle">Aplikasi Edukasi Penyusun Kalimat</p>
+        <div class="menu-buttons">
+          <button class="btn btn-primary" id="btn-materi">Materi Pembelajaran</button>
+          <button class="btn btn-primary" id="btn-mulai">Mulai Bermain</button>
+          <button class="btn btn-secondary" id="btn-cara">Cara Bermain</button>
+        </div>
+        <p class="highscore">Skor Tertinggi: <span id="highscore-value">0</span></p>
+        <p class="hint-menu">Baru pertama kali? Baca Materi Pembelajaran dulu ya.</p>
+      </section>
+
+      <!-- Materi Pembelajaran -->
+      <section id="screen-materi" class="screen">
+        <h2 class="title title-sm">Materi Pembelajaran</h2>
+
+        <div class="materi-container">
+          <div class="materi-card">
+            <h3 class="materi-judul">Apa Itu Kalimat?</h3>
+            <p class="materi-teks">Kalimat adalah satuan bahasa terkecil yang mengungkapkan pikiran secara utuh. Kalimat yang baik tersusun dari kata-kata yang runtut sehingga mudah dipahami oleh pembaca atau pendengar.</p>
+          </div>
+
+          <div class="materi-card">
+            <h3 class="materi-judul">Pola SPOK</h3>
+            <p class="materi-teks">Kalimat yang baik umumnya mengikuti pola <b>SPOK</b>:</p>
+            <ul class="materi-list">
+              <li><b>S</b>ubjek — pelaku atau tokoh (siapa?)</li>
+              <li><b>P</b>redikat — kegiatan atau kata kerja (melakukan apa?)</li>
+              <li><b>O</b>bjek — sasaran tindakan (apa yang dikenai?)</li>
+              <li><b>K</b>eterangan — tempat, waktu, atau cara</li>
+            </ul>
+          </div>
+
+          <div class="materi-card contoh">
+            <h3 class="materi-judul">Contoh Kalimat</h3>
+            <p class="materi-teks"><b>"Ayah membaca koran di teras"</b></p>
+            <ul class="materi-list">
+              <li>Subjek: <b>Ayah</b></li>
+              <li>Predikat: <b>membaca</b></li>
+              <li>Objek: <b>koran</b></li>
+              <li>Keterangan: <b>di teras</b></li>
+            </ul>
+          </div>
+
+          <div class="materi-card">
+            <h3 class="materi-judul">Tips Menyusun Kalimat</h3>
+            <ol class="materi-list">
+              <li>Mulai dari <b>Subjek</b> (pelaku)</li>
+              <li>Lanjutkan dengan <b>Predikat</b> (kegiatan)</li>
+              <li>Tambahkan <b>Objek</b> jika ada</li>
+              <li>Lengkapi dengan <b>Keterangan</b></li>
+              <li>Baca ulang kalimat untuk memastikan runtut</li>
+            </ol>
+          </div>
+
+          <div class="materi-card contoh">
+            <h3 class="materi-judul">Contoh Latihan</h3>
+            <p class="materi-teks">Kata: <b>[ke, ibu, pergi, pasar]</b></p>
+            <p class="materi-teks">Jawaban: <b>ibu pergi ke pasar</b></p>
+            <p class="materi-teks">Penjelasan: Subjek <b>ibu</b>, Predikat <b>pergi</b>, Keterangan <b>ke pasar</b>.</p>
+          </div>
+        </div>
+
+        <div class="menu-buttons">
+          <button class="btn btn-primary" id="btn-mulai-dari-materi">Mulai Latihan Soal</button>
+          <button class="btn btn-secondary" id="btn-kembali-materi">&larr; Kembali</button>
+        </div>
+      </section>
+
+      <!-- Cara Bermain -->
+      <section id="screen-cara" class="screen">
+        <h2 class="title title-sm">Cara Bermain</h2>
+        <ol class="cara-list">
+          <li>Klik kata di <b>Bank Kata</b> untuk memindahkannya ke kotak <b>Jawaban</b>.</li>
+          <li>Klik kata di kotak <b>Jawaban</b> untuk mengembalikannya ke <b>Bank Kata</b>.</li>
+          <li>Susun kata menjadi kalimat yang benar sesuai pola <b>SPOK</b>.</li>
+          <li>Kata yang posisinya benar akan berwarna <b>hijau</b>, kata yang salah posisinya berwarna <b>merah</b>.</li>
+          <li>Jika sudah yakin semua kata benar, klik <b>Periksa</b>.</li>
+          <li>Klik <b>Ulangi</b> jika ingin mengulang dari awal soal.</li>
+          <li>Waktu setiap soal 30 detik.</li>
+        </ol>
+        <button class="btn btn-secondary" id="btn-kembali-cara">&larr; Kembali</button>
+      </section>
+
+      <!-- Permainan -->
+      <section id="screen-game" class="screen">
+        <header class="game-header">
+          <div class="info">Soal <span id="soal-num">1</span>/<span id="soal-total">5</span></div>
+          <div class="info">Waktu <span id="timer">30</span>s</div>
+          <div class="info">Skor <span id="skor">0</span></div>
+        </header>
+
+        <div class="progress-bar"><div id="progress-fill"></div></div>
+
+        <p class="instruksi">Klik kata di <b>Bank Kata</b>. Kata <b style="color: #1c7430">hijau</b> = posisi sudah benar, kata <b style="color: #dc3545">merah</b> = posisi salah.</p>
+
+        <div class="drop-zone" id="bank-kata">
+          <span class="zone-label">Bank Kata</span>
+        </div>
+
+        <div class="drop-zone" id="area-jawaban">
+          <span class="zone-label">Jawaban</span>
+        </div>
+
+        <div class="game-actions">
+          <button class="btn btn-primary" id="btn-periksa">Periksa</button>
+          <button class="btn btn-secondary" id="btn-ulangi">Ulangi</button>
+          <button class="btn btn-secondary" id="btn-lewati">Soal Selanjutnya</button>
+          <button class="btn btn-secondary" id="btn-menu-game">Menu</button>
+        </div>
+
+        <p id="feedback" class="feedback"></p>
+      </section>
+
+      <!-- Hasil Akhir -->
+      <section id="screen-hasil" class="screen">
+        <h2 class="title">Hasil Akhir</h2>
+        <p class="hasil-info">Skor: <span id="hasil-skor">0</span>/<span id="hasil-max">0</span></p>
+        <p class="bintang" id="bintang">&#9733;</p>
+        <p class="hasil-pesan" id="hasil-pesan"></p>
+        <div class="menu-buttons">
+          <button class="btn btn-primary" id="btn-main-lagi">Main Lagi</button>
+          <button class="btn btn-secondary" id="btn-menu-utama">Menu Utama</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+

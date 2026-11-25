@@ -1,0 +1,696 @@
+/* Variabel warna Persona 4 Golden */
+:root {
+  --p4-yellow: #ffe500;
+  --p4-yellow-dark: #e6ce00;
+  --p4-black: #0a0a0a;
+  --p4-white: #fffef0;
+  --p4-red: #e60012;
+  --p4-green: #22c55e;
+  /* Dipertegas menjadi hijau yang lebih jelas */
+  --border-w: 4px;
+  --shadow-offset: 8px;
+}
+
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body dengan latar kuning dan pola garis diagonal */
+body {
+  min-height: 100vh;
+  font-family: "Rubik", "Segoe UI", Tahoma, sans-serif;
+  font-weight: 700;
+  background-color: var(--p4-yellow);
+  background-image: repeating-linear-gradient(45deg, transparent 0, transparent 40px, rgba(0, 0, 0, 0.05) 40px, rgba(0, 0, 0, 0.05) 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Titik halftone di sudut layar */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 160px;
+  height: 160px;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.55) 2px, transparent 2px);
+  background-size: 14px 14px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  top: 10px;
+  left: 10px;
+}
+
+body::after {
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Wadah utama aplikasi */
+.app-container {
+  width: 100%;
+  max-width: 640px;
+  background: var(--p4-white);
+  border: var(--border-w) solid var(--p4-black);
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--p4-black);
+  padding: 35px 30px;
+  min-height: 620px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Efek scanline TV */
+.app-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 4px);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Bintang dekoratif khas Persona di pojok kanan atas */
+.app-container::before {
+  content: "★";
+  position: absolute;
+  top: -40px;
+  right: -15px;
+  font-size: 72px;
+  color: var(--p4-yellow);
+  -webkit-text-stroke: 2.5px var(--p4-black);
+  transform: rotate(15deg);
+  z-index: 2;
+  filter: drop-shadow(3px 3px 0 var(--p4-black));
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+/* Layar aplikasi */
+.screen {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.screen.active {
+  display: flex;
+  animation: slideIn 0.35s cubic-bezier(0.25, 1.5, 0.5, 1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px) skew(-4deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) skew(0);
+  }
+}
+
+/* Judul */
+.title {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  text-align: center;
+  color: var(--p4-yellow);
+  -webkit-text-stroke: 2.5px var(--p4-black);
+  text-shadow: 4px 4px 0 var(--p4-black);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transform: skew(-4deg);
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.title-sm {
+  font-size: 32px;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--p4-black);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+/* Hint menu kecil */
+.hint-menu {
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+  font-size: 12px;
+  color: var(--p4-black);
+  margin-top: 12px;
+  background: #fff9c4;
+  border: 2px dashed var(--p4-black);
+  padding: 6px 12px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tombol */
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn {
+  font-family: "Rubik", sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  padding: 15px 24px;
+  border: 3px solid var(--p4-black);
+  background: var(--p4-yellow);
+  color: var(--p4-black);
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 5px 5px 0 var(--p4-black);
+  transition: all 0.1s ease;
+  transform: skew(-4deg);
+  position: relative;
+}
+
+.btn:hover {
+  transform: skew(-4deg) translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--p4-black);
+}
+
+.btn:active {
+  transform: skew(-4deg) translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--p4-black);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: skew(-4deg);
+}
+
+.btn-primary {
+  background: var(--p4-yellow);
+}
+
+.btn-secondary {
+  background: var(--p4-white);
+}
+
+.btn-secondary:hover {
+  background: var(--p4-yellow);
+}
+
+/* Skor tertinggi */
+.highscore {
+  display: block;
+  width: fit-content;
+  margin: 25px auto 0;
+  background: var(--p4-black);
+  color: var(--p4-yellow);
+  padding: 10px 24px;
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 3px solid var(--p4-black);
+  transform: skew(-4deg);
+}
+
+/* ===== Materi Pembelajaran ===== */
+.materi-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 8px;
+  margin-bottom: 15px;
+}
+
+.materi-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.materi-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border: 2px solid var(--p4-black);
+}
+
+.materi-container::-webkit-scrollbar-thumb {
+  background: var(--p4-yellow);
+  border: 2px solid var(--p4-black);
+}
+
+.materi-card {
+  background: var(--p4-white);
+  border: 3px solid var(--p4-black);
+  box-shadow: 4px 4px 0 var(--p4-black);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.materi-card.contoh {
+  background: #fff9c4;
+}
+
+.materi-judul {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--p4-yellow);
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 10px;
+  transform: skew(-4deg);
+  border: 2px solid var(--p4-black);
+}
+
+.materi-teks {
+  font-family: "Rubik", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--p4-black);
+  margin-bottom: 6px;
+}
+
+.materi-teks b {
+  background: #fff9c4;
+  padding: 1px 5px;
+  border: 1px solid var(--p4-black);
+}
+
+.materi-list {
+  font-family: "Rubik", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--p4-black);
+  padding-left: 24px;
+  margin: 6px 0 0 0;
+}
+
+.materi-list li {
+  margin-bottom: 4px;
+}
+
+.materi-list li b {
+  background: var(--p4-black);
+  color: var(--p4-yellow);
+  padding: 1px 6px;
+  font-weight: 900;
+}
+
+/* ===== Cara Bermain ===== */
+.cara-list {
+  padding: 18px 24px 18px 48px;
+  margin: 20px 0;
+  line-height: 1.7;
+  color: var(--p4-black);
+  font-weight: 500;
+  font-size: 15px;
+  background: var(--p4-white);
+  border: 3px solid var(--p4-black);
+  box-shadow: 4px 4px 0 var(--p4-black);
+  list-style: decimal;
+}
+
+.cara-list li {
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+.cara-list li::marker {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--p4-black);
+}
+
+#btn-kembali-cara {
+  margin-top: auto;
+}
+
+/* Header permainan */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.info {
+  background: var(--p4-black);
+  color: var(--p4-yellow);
+  padding: 7px 14px;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transform: skew(-6deg);
+  flex: 1;
+  text-align: center;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 16px;
+  background: var(--p4-white);
+  border: 3px solid var(--p4-black);
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: repeating-linear-gradient(45deg, var(--p4-yellow) 0, var(--p4-yellow) 8px, var(--p4-black) 8px, var(--p4-black) 11px);
+  transition: width 0.4s ease;
+}
+
+/* Instruksi */
+.instruksi {
+  text-align: center;
+  font-weight: 700;
+  color: var(--p4-black);
+  margin-bottom: 14px;
+  font-size: 13px;
+  line-height: 1.4;
+  background: #fff9c4;
+  border: 2px dashed var(--p4-black);
+  padding: 8px 12px;
+}
+
+.instruksi b {
+  font-weight: 900;
+}
+
+/* Area drop */
+.drop-zone {
+  position: relative;
+  min-height: 90px;
+  border: 3px dashed var(--p4-black);
+  padding: 28px 14px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-content: flex-start;
+  margin-bottom: 15px;
+  background-color: var(--p4-white);
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+  background-size: 12px 12px;
+  transition: background-color 0.15s ease;
+}
+
+/* Label zona */
+.zone-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--p4-black);
+  color: var(--p4-yellow);
+  padding: 4px 12px;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Chip kata */
+.kata {
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 9px 18px;
+  background: var(--p4-yellow);
+  border: 3px solid var(--p4-black);
+  color: var(--p4-black);
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 3px 3px 0 var(--p4-black);
+  transition: all 0.15s ease;
+  position: relative;
+  text-transform: lowercase;
+}
+
+.kata:nth-of-type(odd) {
+  transform: rotate(-2deg);
+}
+
+.kata:nth-of-type(even) {
+  transform: rotate(1.5deg);
+}
+
+.kata:hover {
+  transform: rotate(0deg) scale(1.06);
+  box-shadow: 5px 5px 0 var(--p4-black);
+  z-index: 2;
+  background: var(--p4-yellow-dark);
+}
+
+.kata:active {
+  transform: rotate(0deg) scale(0.96);
+}
+
+/* PERUBAHAN WARNA KATA SAAT DIPERIKSA */
+#area-jawaban .kata {
+  background: #fff9c4;
+}
+
+#area-jawaban .kata:hover {
+  background: #ffe9a0;
+}
+
+/* Kata Benar: Latar Hijau Terang, Teks Hitam */
+.kata.benar {
+  background-color: var(--p4-green) !important;
+  color: var(--p4-black) !important;
+  border-color: var(--p4-black) !important;
+  box-shadow: 3px 3px 0 var(--p4-black) !important;
+  animation: popGood 0.35s ease;
+}
+
+/* Kata Salah: Latar Merah, Teks Putih */
+.kata.salah {
+  background-color: var(--p4-red) !important;
+  color: var(--p4-white) !important;
+  border-color: var(--p4-black) !important;
+  box-shadow: 3px 3px 0 var(--p4-black) !important;
+  animation: shake 0.4s ease;
+}
+
+@keyframes popGood {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.15) rotate(-3deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(-6px) rotate(-4deg);
+  }
+
+  75% {
+    transform: translateX(6px) rotate(4deg);
+  }
+}
+
+/* Tombol aksi permainan */
+.game-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.game-actions .btn {
+  flex: 1;
+  font-size: 14px;
+  padding: 13px 12px;
+  min-width: 90px;
+}
+
+/* Tombol Soal Selanjutnya - lebih kecil */
+#btn-lewati {
+  flex: 0 0 auto;
+  font-size: 12px;
+  padding: 10px 14px;
+  letter-spacing: 1px;
+  min-width: auto;
+}
+
+/* Umpan balik */
+.feedback {
+  display: block;
+  width: fit-content;
+  margin: 16px auto 0;
+  min-height: 0;
+  font-weight: 900;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.feedback:empty {
+  display: none;
+}
+
+.feedback.benar {
+  background: var(--p4-green);
+  color: var(--p4-black);
+  padding: 8px 20px;
+  border: 3px solid var(--p4-black);
+  box-shadow: 4px 4px 0 var(--p4-black);
+  transform: skew(-4deg);
+  animation: popGood 0.35s ease;
+}
+
+.feedback.salah {
+  background: var(--p4-red);
+  color: var(--p4-white);
+  padding: 8px 20px;
+  border: 3px solid var(--p4-black);
+  box-shadow: 4px 4px 0 var(--p4-black);
+  transform: skew(-4deg);
+  animation: shake 0.4s ease;
+}
+
+.feedback.info {
+  background: var(--p4-black);
+  color: var(--p4-yellow);
+  padding: 8px 20px;
+  border: 3px solid var(--p4-black);
+  transform: skew(-4deg);
+}
+
+/* Hasil akhir */
+.hasil-info {
+  text-align: center;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: 2px;
+  margin-top: 25px;
+  color: var(--p4-black);
+  text-transform: uppercase;
+}
+
+.hasil-info span {
+  color: var(--p4-yellow);
+  -webkit-text-stroke: 1.5px var(--p4-black);
+  text-shadow: 2px 2px 0 var(--p4-black);
+}
+
+/* Bintang hasil akhir khas Persona */
+.bintang {
+  text-align: center;
+  font-size: 45px;
+  margin: 22px 0;
+  letter-spacing: 10px;
+  filter: drop-shadow(3px 3px 0 var(--p4-black));
+  color: var(--p4-yellow);
+  -webkit-text-stroke: 2px var(--p4-black);
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-weight: 900;
+  transform: skew(-6deg);
+}
+
+.hasil-pesan {
+  text-align: center;
+  color: var(--p4-black);
+  font-weight: 900;
+  font-size: 15px;
+  padding: 12px 18px;
+  background: var(--p4-yellow);
+  border: 3px solid var(--p4-black);
+  box-shadow: 4px 4px 0 var(--p4-black);
+  margin: 18px auto;
+  width: fit-content;
+  max-width: 100%;
+  transform: skew(-3deg);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsif */
+@media (max-width: 520px) {
+  .app-container {
+    padding: 25px 18px;
+  }
+
+  .title {
+    font-size: 35px;
+  }
+
+  .title-sm {
+    font-size: 26px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 13px 16px;
+  }
+
+  body {
+    padding: 25px 12px;
+  }
+
+  .app-container::before {
+    font-size: 48px;
+    top: -30px;
+    right: -10px;
+  }
+
+  .game-actions .btn {
+    min-width: 70px;
+  }
+
+  .materi-container {
+    max-height: 320px;
+  }
+
+  .materi-judul {
+    font-size: 12px;
+  }
+
+  .materi-teks,
+  .materi-list {
+    font-size: 12px;
+  }
+}
