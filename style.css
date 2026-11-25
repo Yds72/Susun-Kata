@@ -317,7 +317,28 @@ body::after {
   padding: 1px 6px;
   font-weight: 900;
 }
+/* Styling untuk kartu video dan iframe YouTube */
+.video-card {
+  background: var(--p4-white);
+}
 
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Rasio 16:9 */
+  margin-top: 10px;
+  border: 3px solid var(--p4-black);
+  box-shadow: 3px 3px 0 var(--p4-black);
+  background: #000;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 /* ===== Cara Bermain ===== */
 .cara-list {
   padding: 18px 24px 18px 48px;
@@ -513,7 +534,6 @@ body::after {
 }
 
 @keyframes shake {
-
   0%,
   100% {
     transform: translateX(0) rotate(0deg);
@@ -655,11 +675,17 @@ body::after {
   }
 
   .title {
-    font-size: 35px;
+    font-size: 32px; 
+    -webkit-text-stroke: 2px var(--p4-black); 
+    text-shadow: 2px 2px 0 var(--p4-black); 
+    letter-spacing: 1px; 
   }
 
   .title-sm {
-    font-size: 26px;
+    font-size: 24px;
+    -webkit-text-stroke: 1px var(--p4-black);
+    text-shadow: 2px 2px 0 var(--p4-black);
+    letter-spacing: 1px;
   }
 
   .btn {
